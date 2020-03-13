@@ -9,7 +9,7 @@ class GraphHome extends Component {
     let dataStudentRatingFun = [0, 0];
     let assignmentStudent = [""];
     //select date "week1"
-    const studentData = StudentData.filter(function(item) {
+    const studentData = StudentData.filter(item => {
       return item.assignment.startsWith("W1");
     });
 
@@ -25,10 +25,10 @@ class GraphHome extends Component {
 
     assignmentStudent = assignmentStudent.concat(assignments);
 
-    const ratingDifficultyData = studentData.map(function(item) {
+    const ratingDifficultyData = studentData.map(item => {
       return item.ratingDifficulty;
     });
-    const ratingFunData = studentData.map(function(item) {
+    const ratingFunData = studentData.map(item => {
       return item.ratingFun;
     });
 

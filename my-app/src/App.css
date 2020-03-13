@@ -1,0 +1,20 @@
+.victoryChart {
+  width: 800px;
+}
+
+.studentFun {
+  color: #f96d01;
+}
+
+.studentDifficulty {
+  color: #060606;
+}
+
+li {
+  display: inline;
+  padding: 10px;
+}
+
+h2 {
+  text-align: center;
+}

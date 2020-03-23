@@ -1,33 +1,35 @@
 import React, { Component } from "react";
 import { VictoryBar, VictoryChart, VictoryAxis } from "victory";
 import "./../App.css";
-import StudentData from "./../container/studentData";
+import RawStudentData from "./../container/studentData";
 
 class GraphHome extends Component {
   render() {
     let dataStudentRatingDifficulty = [0, 0];
     let dataStudentRatingFun = [0, 0];
     let assignmentStudent = [""];
+
     //select date "week1"
-    const studentData = StudentData.filter(item => {
+    const studentData = RawStudentData.filter(item => {
       return item.assignment.startsWith("W1");
     });
+    console.log(studentData);
 
-    //Assignments
-    const assignments = studentData
-      .map(item => {
-        return item.assignment;
-      })
-      .reduce(function(a, b) {
-        if (a.indexOf(b) < 0) a.push(b);
-        return a;
-      }, []);
-
-    assignmentStudent = assignmentStudent.concat(assignments);
+    // const ratingW1D1_1 = RawStudentData.filter(item => {
+    //   return item.assignment.startsWith("W1D1");
+    // })
+    //   .map(item => {
+    //     return item.ratingDifficulty;
+    //   })
+    //   .reduce((a, b) => {
+    //     return a + b;
+    //   });
+    // console.log(ratingW1D1_1);
 
     const ratingDifficultyData = studentData.map(item => {
       return item.ratingDifficulty;
     });
+
     const ratingFunData = studentData.map(item => {
       return item.ratingFun;
     });
@@ -37,6 +39,16 @@ class GraphHome extends Component {
     dataStudentRatingDifficulty = dataStudentRatingDifficulty.concat(
       ratingDifficultyData
     );
+
+    //Assignments
+    assignmentStudent = studentData
+      .map(item => {
+        return item.assignment;
+      })
+      .reduce((a, b) => {
+        if (a.indexOf(b) < 0) a.push(b);
+        return a;
+      }, []);
 
     return (
       <div>

@@ -13,18 +13,6 @@ class GraphHome extends Component {
     const studentData = RawStudentData.filter(item => {
       return item.assignment.startsWith("W1");
     });
-    console.log(studentData);
-
-    // const ratingW1D1_1 = RawStudentData.filter(item => {
-    //   return item.assignment.startsWith("W1D1");
-    // })
-    //   .map(item => {
-    //     return item.ratingDifficulty;
-    //   })
-    //   .reduce((a, b) => {
-    //     return a + b;
-    //   });
-    // console.log(ratingW1D1_1);
 
     const ratingDifficultyData = studentData.map(item => {
       return item.ratingDifficulty;

@@ -11,9 +11,30 @@ import Rahima from "./students/Rahima";
 import Sandra from "./students/Sandra";
 import Storm from "./students/Storm";
 import Wietske from "./students/Wietske";
+import RawStudentData from "./../container/studentData";
+import StudentLink from "./StudentLink";
+import StudentRoute from "./StudentRoute";
 
 class Routing extends Component {
   render() {
+    const unique = (value, index, self) => {
+      return self.indexOf(value) === index;
+    };
+    const studentData = RawStudentData.map(item => {
+      return item.name;
+    }).filter(unique);
+
+    // const routeList = studentData.map(item => {
+    //   return (
+    //     <Route path={`/students/${studentData[1]}`} component={"Aranka"} />
+    //   );
+    //   <StudentRoute studentName={item} />;
+    // });
+
+    const linkList = studentData.map(item => {
+      return <StudentLink studentName={item} />;
+    });
+
     return (
       <Router>
         <div>
@@ -26,70 +47,14 @@ class Routing extends Component {
                   Home{" "}
                 </Link>
               </li>
-              <li>
-                <Link to={"/students/aranka"} className="nav-link">
-                  Aranka
-                </Link>
-              </li>
-              <li>
-                <Link to={"/students/evelyn"} className="nav-link">
-                  {" "}
-                  Evelyn
-                </Link>
-              </li>
-              <li>
-                <Link to={"/students/floris"} className="nav-link">
-                  {" "}
-                  Floris
-                </Link>
-              </li>
-              <li>
-                <Link to={"/students/hector"} className="nav-link">
-                  {" "}
-                  Hector
-                </Link>
-              </li>
-              <li>
-                <Link to={"/students/martina"} className="nav-link">
-                  {" "}
-                  Martina
-                </Link>
-              </li>
-              <li>
-                <Link to={"/students/maurits"} className="nav-link">
-                  {" "}
-                  Maurits
-                </Link>
-              </li>
-              <li>
-                <Link to={"/students/rahima"} className="nav-link">
-                  {" "}
-                  Rahima
-                </Link>
-              </li>
-              <li>
-                <Link to={"/students/sandra"} className="nav-link">
-                  {" "}
-                  Sandra
-                </Link>
-              </li>
-              <li>
-                <Link to={"/students/storm"} className="nav-link">
-                  {" "}
-                  Storm
-                </Link>
-              </li>
-              <li>
-                <Link to={"/students/wietske"} className="nav-link">
-                  {" "}
-                  Wietske
-                </Link>
-              </li>
+              {linkList}
             </ul>
           </nav>
+
           <hr />
           <Switch>
             <Route exact path="/" component={Home} />
+
             <Route path="/students/aranka" component={Aranka} />
             <Route path="/students/evelyn" component={Evelyn} />
             <Route path="/students/floris" component={Floris} />

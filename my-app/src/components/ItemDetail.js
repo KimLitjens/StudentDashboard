@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import StudentGraph from "./StudentGraph";
 
-class StudentRoute extends Component {
+class Home extends Component {
   render() {
     const studentName = this.props.match.params.id;
+    console.log(this.props.match.params.id);
     return (
       <div>
         <h2>{studentName}</h2>
@@ -13,4 +14,4 @@ class StudentRoute extends Component {
   }
 }
 
-export default StudentRoute;
+export default Home;

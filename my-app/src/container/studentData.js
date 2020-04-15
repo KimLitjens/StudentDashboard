@@ -559,7 +559,7 @@ const StudentData = [
   { "id": 1055 , "name": "Storm", "assignment": "W6D1-1", "ratingDifficulty": 4, "ratingFun":  4},
   { "id": 1056 , "name": "Storm", "assignment": "W6D2-1", "ratingDifficulty": 1, "ratingFun":  1},
   { "id": 1057 , "name": "Storm", "assignment": "W6D2 - Project - Eindopdracht", "ratingDifficulty": 3, "ratingFun":  3}
-
+  
 ];
 
 export default StudentData
